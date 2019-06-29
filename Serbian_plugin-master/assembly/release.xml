@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<assembly>
+	<id>bin</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<unpack>false</unpack>
+			<outputDirectory>/</outputDirectory>
+			<useProjectArtifact>false</useProjectArtifact>
+			<useTransitiveFiltering>true</useTransitiveFiltering>
+			<excludes>
+				<exclude>org.elasticsearch:elasticsearch</exclude>
+				<exclude>org.apache.lucene</exclude>
+			</excludes>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<fileSet>
+			<directory>${project.build.directory}/</directory>
+			<outputDirectory>./elasticsearch</outputDirectory>
+			<includes>
+				<include>elasticsearch-${project.name}.jar</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>./</directory>
+			<outputDirectory>./elasticsearch</outputDirectory>
+			<includes>
+				<include>plugin-descriptor.properties</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+</assembly>
